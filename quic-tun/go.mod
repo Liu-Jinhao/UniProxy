@@ -4,7 +4,7 @@ go 1.19
 
 replace (
 	github.com/bifurcation/mint => github.com/bifurcation/mint v0.0.0-20171208133358-a6080d464fb5
-	github.com/qdeconinck/mp-quic => /home/a/mp-quic
+	github.com/qdeconinck/mp-quic => ../mp-quic
 	golang.org/x/crypto => golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4
 )
 
