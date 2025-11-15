@@ -6,7 +6,7 @@ Run `go build` in `./quic-tun/client/cmd` and `./quic/tun/server/cmd` to compile
 
 At the server-side proxy, run:
 
-    ./quic-tun/server/cmd --listen-on 10.0.6.2:7500
+    ./quic-tun/server/cmd/cmd --listen-on 10.0.6.2:7500
 
 The address of the server-side proxy is `10.0.6.2:7500`, you can change it to the actual address in use.
 
