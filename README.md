@@ -17,9 +17,11 @@ At the client-side proxy, run `client.sh`, which includes:
     ip route add local 0.0.0.0/0 dev lo table 100
     iptables -t mangle -A PREROUTING --in-interface r1-eth0 -p tcp -d 10.0.7.0/24 -j TPROXY --on-port 6500 --on-ip 127.0.0.1 --tproxy-mark 1/1
     
-The client-side proxy is listening on `127.0.0.1:6500`. The `iptables` command and the corrsponding routing commands intercepts tcp packets that enter through `r1-eth0` interface and have a destination IP within the `10.0.7.0/24` subnet, and redirects them to the client-side proxy's listening port.  The `iptables` command can be modified according to actual circumstances or specific needs.
+The client-side proxy is listening on `127.0.0.1:6500`. The `iptables` command and the corrsponding routing commands intercepts tcp packets that enter through `r1-eth0` interface and have a destination IP within the `10.0.7.0/24` subnet, and redirects them to the client-side proxy's listening port.  The `iptables` command can be modified according to actual circumstances or specific needs. 
 
 If you want to change the scheduling algorithm, you can modify the parameter *SCHE_ALGO* in `./mp-quic/scheduler.go`. If you want to change the receive window size, you can modify the parameter *InitialConnectionFlowControlWindow* in `./mp-quic/internal/protocol/protocol.go` and the parameters *ReceiveConnectionFlowControlWindow*, *DefaultMaxReceiveConnectionFlowControlWindowServer*, *DefaultMaxReceiveConnectionFlowControlWindowClient* in `./mp-quic/internal/protocol/server_parameters.go`. After modifying the above parameters, you need to recompile the proxy program to make the changes take effect.
+
+Additionally, we provide example programs in `\example` as references for creating the topology in Mininet and generating client-to-server download requests. 
 
 ## Key implementation in UniProxy
 To modify the original proxy into a transparent proxy, we modify the functions *Start* at line 27 and *handshake* at line 121 in `./quic-tun/client.go`.
