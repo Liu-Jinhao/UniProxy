@@ -1,5 +1,7 @@
 # UniProxy
 
+This repository contains the source code for the paper "[UniProxy: Breaking the Per-Flow Barrier in Multipath Proxy Design](https://dl.acm.org/doi/abs/10.1145/3786293)" published in PACMNET (CoNEXT'26).
+
 ## How to use UniProxy
 
 Run `go build` in `./quic-tun/client/cmd` and `./quic/tun/server/cmd` to compile the client- and server-side proxy program, respectively.
